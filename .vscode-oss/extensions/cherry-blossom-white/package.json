@@ -1,0 +1,22 @@
+{
+    "name": "cherry-blossom-white",
+    "displayName": "cherry-blossom-white",
+    "description": "",
+    "version": "0.0.1",
+    "publisher": "vulnoryx",
+    "engines": {
+        "vscode": "^1.0.0"
+    },
+    "categories": [
+        "Themes"
+    ],
+    "contributes": {
+        "themes": [
+            {
+                "label": "cherry-blossom-white",
+                "uiTheme": "vs-dark",
+                "path": "./themes/cherry-blossom-white.json"
+            }
+        ]
+    }
+}

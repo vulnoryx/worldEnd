@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open Terminal Here</name>
+	<submenu></submenu>
+	<unique-id>1695988976088138-1</unique-id>
+	<command>kitty %f</command>
+	<description>opens a terminal to this direcotry</description>
+	<range></range>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon>ark</icon>
+	<name>zip</name>
+	<submenu></submenu>
+	<unique-id>1717097054162011-1</unique-id>
+	<command>zip -r %f.zip %f</command>
+	<description>zips a file or folder</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>visual-studio-code</icon>
+	<name>Open in VSCode</name>
+	<submenu></submenu>
+	<unique-id>1697277576150242-1</unique-id>
+	<command>code %f</command>
+	<description>opens this file/foler in visual studio code</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+	<other-files/>
+	<text-files/>
+</action>
+</actions>

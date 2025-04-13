@@ -1,0 +1,231 @@
+* {
+    color: unset;
+    font-weight: bold;
+    font-style: normal;
+    padding: 0px;
+
+    font-size: 20px;
+    font-family: JetBrainsMono Nerd Font;
+}
+
+window#waybar {
+    background-color: #7a92a0;
+
+    opacity: 1;
+    border-radius: 25px;
+
+    transition:
+        background-color 0.25s linear,
+        color 0.25s linear,
+        border-color 0.5s linear;
+}
+
+#workspaces {
+    padding: 0px 2px;
+
+    color: #eff3f7;
+}
+
+#workspaces button {
+    padding: 0px 5px;
+    margin: 5px 3px;
+
+    border-radius: 15px;
+
+    background-color: #7A92A0;
+
+    transition: all 200ms cubic-bezier(0.68, -0.55, 0.265, 1.55); 
+}
+
+#workspaces button.active {
+    color: #7A92A0;
+    background-color: #eff3f7;
+
+    min-width: 40px;
+    transition: all 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55); 
+}
+
+#workspaces button:hover {
+    color: #7A92A0;
+    background-color: #eff3f7;
+
+    border: 1px solid #eff3f7;
+}
+
+#custom-window-x {
+    padding-right: 15px;
+
+    background-color: #ed404c;
+    border: 3px solid #eff3f7;
+    border-left: 0px;
+
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#window {
+    border-radius: 10px;
+    border: 3px solid #7A92A0;
+    
+    /* border-right: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px; */
+
+    padding-left: 5px;
+    padding-right: 5px;
+
+    transition: all 0.3s ease-in-out;
+}
+
+#window:hover {
+    background-color: #ed404c;
+    border: 3px solid #eff3f7;
+
+    /* border-right: 0px; */
+}
+
+#memory, #cpu, #temperature, #network, #bluetooth {
+    transition: all 0.3s ease-in-out;
+}
+
+
+#cpu:hover,
+#temperature:hover,
+#bluetooth:hover {
+    background-color: #eff3f7;
+    color: #7A92A0;
+}
+
+
+#network, #bluetooth {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#bluetooth {
+    font-size: 25px;
+
+    border-radius: 10px;
+    border: 3px solid #eff3f7;
+}
+
+#memory {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#cpu {
+    padding-right: 10px;
+    padding-left: 5px;
+
+    border-radius: 0px 10px 10px 0px;
+
+    border: 3px solid #eff3f7;
+    border-left: 0px solid #eff3f7;
+}
+
+#temperature {
+    padding-left: 10px;
+    padding-right: 5px;
+    
+    border-radius: 10px 0px 0px 10px;
+
+    border: 3px solid #eff3f7;
+    border-right: 0px solid #eff3f7;
+}
+
+#tray {
+    background-color: #7A92A0;
+    border: 2px solid #7A92A0;
+    border-radius: 0px 0px 0px 0px;
+
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 1px;
+}
+
+#clock {
+    background-color: #7A92A0;
+
+    border-radius: 0px 5px 5px 0px;
+
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#custom-power {
+    background-color: #7A92A0;
+
+    padding-left: 10px;
+    padding-right: 15px;
+}
+
+#custom-power_shutdown,
+#custom-power_reboot,
+#custom-power_suspend,
+#custom-power_lock,
+#custom-power_logout {
+    background-color: #7A92A0;
+    border: 3px solid #eff3f7;
+    border-right: 0px;
+    border-left: 0px;
+
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 0px;
+
+    transition: all 0.3s linear;
+}
+
+#custom-power_shutdown {
+    font-size: 25px;
+    border-left: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-left: 3px solid #eff3f7;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#custom-power_reboot {
+    padding-left: 11px;
+    padding-right: 14px;
+}
+
+#custom-power_suspend {
+    padding-left: 9px;
+    padding-right: 9px;
+}
+
+#custom-power_lock {
+    padding-left: 13px;
+    padding-right: 13px;
+}
+
+
+#custom-power_logout {
+    margin-right: 5px;
+    padding-left: 11px;
+    padding-right: 13px;
+    border: 3px solid #eff3f7;
+    border-left: 0px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#custom-power_shutdown:hover,
+#custom-power_reboot:hover,
+#custom-power_suspend:hover,
+#custom-power_lock:hover,
+#custom-power_logout:hover {
+    background-color: #eff3f7;
+    color: #7A92A0;
+}
+
+tooltip {
+    opacity: 1.0;
+    background-color: #7A92A0;
+    margin: 5;
+
+    border: 3px solid #eff3f7;
+}

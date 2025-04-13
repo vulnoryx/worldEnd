@@ -1,0 +1,245 @@
+// =============================================================================
+//
+// Waybar configuration
+//
+// =============================================================================
+
+{
+    // -------------------------------------------------------------------------
+    // Global configuration
+    // -------------------------------------------------------------------------
+
+    "layer": "top",
+    "margin-right" : 4,
+    "margin-left" : 4,
+    "margin-top" : 4,
+
+
+    "height": 30,
+
+    "modules-left": [
+        "group/powerControl",
+        "hyprland/workspaces",
+        "hyprland/mode"
+    ],
+    "modules-center": [
+        "hyprland/window"
+    ],
+    "modules-right": [
+        "group/resources",
+        "group/wireless",
+        "tray",
+        "clock"
+    ],
+
+    "hyprland/window": {
+      "format": "{title}",
+      "icon": false,
+      "max-length": 50,
+      "rewrite": {
+        "(.*) - Discord": "Discord",
+        "OBS (.*)": "OBS",
+      },
+      "separate-outputs": true,
+      "on-click-left": "hyprctl dispatch killactive",
+      "on-click-right": "hyprctl dispatch forcekillactive",
+    },
+
+    // -------------------------------------------------------------------------
+    // General modules
+    // -------------------------------------------------------------------------
+
+    "custom/window-x": {
+        "format": "󱓇", // <- kill symbol 󱎘 <- X symbol 
+        "on-click-right": "hyprctl dispatch killactive",
+        "tooltip": false
+    },
+
+    // window group that when hovered a kill icon appears next to the window title
+    "group/windowGroup": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 250,
+            "children-class": "window-group",
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "hyprland/window",
+            "custom/window-x"
+        ]
+    },
+
+    // -------------------------------------------------------------------------
+    // General modules
+    // -------------------------------------------------------------------------
+    "clock": {
+        "interval": 60,
+        "format": "  {:%e %b %Y %H:%M}", // Icon: calendar-alt
+        "tooltip": false,
+        "tooltip-format": "<big><tt>{calendar}</tt></big>",
+        "on-click": "swaymsg exec \\$calendar"
+    },
+
+    // Workspaces
+    "hyprland/workspaces" : {
+        "on-click": "activate",
+        "active-only": false,
+        "all-outputs": true,
+        "format": "{}",
+        "format-icons": {
+			"urgent": "",
+			"active": "",
+			"default": ""
+        },
+        "persistent-workspaces": {
+            "*": 5
+        }       
+    },
+
+    "tray": {
+        "icon-size": 25,
+        "spacing": 10
+    },
+
+    // -------------------------------------------------------------------------
+    // Resource monitoring
+    // -------------------------------------------------------------------------
+    "cpu": {
+        "interval": 10,
+        "format": "CPU: {usage}%", // Icon: microchip: 
+        "states": {
+            "warning": 70,
+            "critical": 90
+        },
+        "on-click": "kitty htop"
+    },
+
+    "memory": {
+        "interval": 10,
+        "format": "MEM: {}%", // Icon: memory
+        "states": {
+            "warning": 70,
+            "critical": 90
+        },
+        "on-click": "kitty htop"
+    },
+
+    "temperature": {
+      "critical-threshold": 90,
+      "interval": 30,
+      "format": "{icon} {temperatureC}°C",
+      "format-icons": [
+          "", // Icon: temperature-empty
+          "", // Icon: temperature-quarter
+          "", // Icon: temperature-half
+          "", // Icon: temperature-three-quarters
+          ""  // Icon: temperature-full
+      ],
+      "tooltip": true
+    },
+
+    "group/resources": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "resources-group",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "memory",
+            "temperature",
+            "cpu"
+        ]
+    },
+
+    // -------------------------------------------------------------------------
+    // Wireless interfaces
+    // -------------------------------------------------------------------------
+    "network": {
+        "interval": 30,
+        "format-wifi": " ", // Icon: wifi
+        "format-ethernet": " ", // Icon: ethernet
+        "format-disconnected": "⚠ Disconnected",
+        "tooltip-format": "{ifname}: {ipaddr}\n{essid} ({signalStrength}%)",
+        "on-click": "/home/vuln/scripts/rofi/wifi-menu.sh"
+    },
+
+    "bluetooth": {
+        "icon-size": 25,
+        "format": "󰂯",
+        "format-disabled": "󰂲",
+        "interval": 30,
+        "on-click": "blueman-manager",
+        "on-click-right": "rfkill toggle bluetooth",
+        "tooltip-format": "{}"
+    },
+
+    "group/wireless": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "wireless-group",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "network",
+            "bluetooth"
+        ]
+    },
+
+    // -------------------------------------------------------------------------
+    // System power management
+    // -------------------------------------------------------------------------
+    "custom/power": {
+        "format": "", // arch icon
+        "on-click": "/home/$USER/scripts/rofi/powermenu-hypr.sh",
+        "tooltip": false
+    },
+
+    "custom/power_shutdown": {
+        "format": "󰤆", // power icon
+        "on-click": "shutdown now",
+        "tooltip": false
+    },
+
+    "custom/power_reboot": {
+        "format": "", // power icon
+        "on-click": "reboot",
+        "tooltip": false
+    },
+
+    "custom/power_suspend": {
+        "format": "", // power icon
+        "on-click": "systemctl suspend",
+        "tooltip": false
+    },
+
+    "custom/power_lock": {
+        "format": "󰌾", // power icon
+        "on-click": "hyprlock",
+        "tooltip": false
+    },
+
+    "custom/power_logout": {
+        "format": "󰍂", // power icon
+        "on-click": "hybrctl dispatch exit",
+        "tooltip": false
+    },
+
+    "group/powerControl": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 500,
+            "children-class": "not-memory",
+            "transition-left-to-right": true
+        },
+        "modules": [
+            "custom/power",
+            "custom/power_shutdown",
+            "custom/power_reboot",
+            "custom/power_suspend",
+            "custom/power_lock",
+            "custom/power_logout"
+        ]
+    },
+}
