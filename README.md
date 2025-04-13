@@ -43,6 +43,7 @@ The name comes from the anime WorldEnd or suka-suka.
 - gpu-screen-recorder (recording and replay cli)
 - gpu-screen-recorder-gtk (recording and replay gui)
 - gwenview (image viewer)
+- [vfetch](https://github.com/vulnoryx/vfetch) (fetcher)
 
 `yay -Sy thunar code brave-bin gpu-screen-recorder gpu-screen-recorder-gtk gwenview`
 
