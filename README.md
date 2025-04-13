@@ -52,6 +52,8 @@ For the gtk theme, you need to get themix with the papyrus icons addon to create
 
 Note: The keyboard layout is set to de (german layout)
 
+Wallpaper source: https://wall.alphacoders.com/big.php?i=806821
+
 ### Screenshots
 
 ![Screenshot 1](./Pictures/Screenshots/2025-04-13_16:34:10.png)
