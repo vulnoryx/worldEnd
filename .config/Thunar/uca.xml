@@ -36,4 +36,26 @@
 	<other-files/>
 	<text-files/>
 </action>
+<action>
+	<icon>/home/vuln/.icons/custom-app-icons/7-Zip_Icon.svg</icon>
+	<name>Open in 7z</name>
+	<submenu></submenu>
+	<unique-id>1746553973935823-1</unique-id>
+	<command>7zFM %f</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>application-bitwig-project-folder</icon>
+	<name>File Sort</name>
+	<submenu></submenu>
+	<unique-id>1746554411693318-2</unique-id>
+	<command>python3 /home/vuln/scripts/py/v-utils/folderSorter.py %f</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
 </actions>
