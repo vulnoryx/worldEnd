@@ -3,8 +3,6 @@ import time
 from datetime import datetime
 import sys
 import getpass # for getting username
-from watchdog.observers import Observer
-from watchdog.events import FileSystemEventHandler
 import logging
 
 # color definition
@@ -111,30 +109,6 @@ def moveIgnoringExtention(currentTime, file_path, move_folder, extention_list):
     # if not listed as ignored, proceed to move file
     if shouldMoveFile:
         moveFile(currentTime, file_data, file_path, move_folder)
-
-
-class MyHandler(FileSystemEventHandler):
-    def on_any_event(self, event):
-        currentTime = str(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
-
-        for filename in os.listdir(path):
-            f = os.path.join(path, filename)
-
-            if os.path.isfile(f):
-                if moveBasedOnExtention(currentTime, f, pictures_folder,               image_extentions):
-                    continue
-                if moveBasedOnExtention(currentTime, f, documents_folder,              document_extentions):
-                    continue
-                if moveBasedOnExtention(currentTime, f, compressed_archives_folder,    compressed_archive_extentions):
-                    continue
-                if moveBasedOnExtention(currentTime, f, sounds_and_music_folder,       sound_and_music_file_extentions):
-                    continue
-                if moveBasedOnExtention(currentTime, f, videos_folder,                 video_file_extentions):
-                    continue
-                if moveBasedOnExtention(currentTime, f, executables_folder,            executable_file_extentions):
-                    continue
-
-                moveIgnoringExtention(  currentTime, f, other_files_folder,            ignore_extentions)
 
 if __name__ == "__main__":
     # set working path based on os (unless path provided via argument)
