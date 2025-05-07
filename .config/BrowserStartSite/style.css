@@ -1,0 +1,62 @@
+
+
+body, html {
+    height: 99%;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Position text in the middle of the page/image */
+  .bg-text {/* Black w/opacity/see-through */
+    color: rgba(239, 243, 247, 1.0);
+    font-weight: bold;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-align: center;
+
+    font-size: 64px;
+    font-family: JetBrains Mono Nerd Font 10;
+
+    text-shadow: 4px 4px 8px black;
+
+    padding-bottom: 0px;
+  }
+
+  #date {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding-top: 0px;
+    font-size: 30px;
+
+    width: 100%;
+  }
+
+
+  .image-container {
+    position: absolute;
+    transform: translate(-15px, -15px);
+    width: 101%; /* adjust as needed */
+    height: 101%;
+    overflow: hidden; /* prevent blur overflow */
+  }
+
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(15px) brightness(0.9); /* blur and darken */
+    display: block;
+  }
+
+
+  ::-webkit-scrollbar {
+    display: none;
+}
